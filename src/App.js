@@ -10,17 +10,23 @@ import TypeList from './components/routes/TypeList';
 
 const App = props => {
   
-  const [pokemons, setState] = useState = ({
+  /*const [state, setState] = useState({
     pokemons : [],
     types: []
   });
+  */
+
+  const [pokemons, setPokemons] = useState([]);
+
+  const [types, setTypes] = useState([]);
+
 
   const pokemonHandler = (res) => {
-    setState({...state, pokemons : res.data.result});
+    setPokemons(res.data.results);
   }
 
   const typeHandler = (res) => {
-    setState({...state, types: res.data.results});
+    setTypes(res.data.results);
   }
 
   componentDidMount() {
