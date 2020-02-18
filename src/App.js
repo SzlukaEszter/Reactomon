@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -29,12 +29,17 @@ const App = props => {
     setTypes(res.data.results);
   }
 
-  componentDidMount() {
+  useEffect(() => {
     axios.get('https://pokeapi.co/api/v2/pokemon'
-      ).then(res => setState({pokemons : res.data.results}));
-    axios.get('https://pokeapi.co/api/v2/type').then(res => this.setState({types : res.data.results}));
-  }
-  getListStyle = () => {return {display : 'flex'}};
+      ).then(res => pokemonHandler(res))
+  }, []);
+
+  useEffect(() => {
+    axios.get('https://pokeapi.co/api/v2/type')
+    .then(res => typeHandler(res))
+  }, []);
+  
+  const getListStyle = () => {return {display : 'flex'}};
     return (
       
         <div className='App'> 
@@ -43,13 +48,13 @@ const App = props => {
           <Route  exact path='/' component = {Home}/>
             <Route path='/pokemons' render = {props => (
               <React.Fragment>
-              <PokemonList style={getListStyle} pokemons={this.state.pokemons}></PokemonList>
+              <PokemonList style={getListStyle} pokemons={pokemons}></PokemonList>
             </React.Fragment>
             )}
             />
             <Route path='/types' render = {props => (
               <React.Fragment>
-              <TypeList style={getListStyle} types={this.state.types}></TypeList>
+              <TypeList style={getListStyle} types={types}></TypeList>
             </React.Fragment>
             )}
             />
