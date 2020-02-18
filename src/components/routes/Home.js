@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 
 
-class Home extends Component {
-  render(){
+const Home = (props) =>  {
+
       return (
         <div>
         <h1>WELLCOME TO HOME OF POKEMONS!</h1>
@@ -10,6 +10,6 @@ class Home extends Component {
         <img src={require('./toppng.com-pokemon-633x530.png')} alt='Pokemons'></img>
       </div> 
       );
-  }
+
 }
   export default Home;
