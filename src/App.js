@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/routes/Home';
-import axios from 'axios';
 import PokemonList from './components/routes/PokemonList';
 import TypeList from './components/routes/TypeList';
+import {useHttp} from './hooks/Http';
 
 
 const App = props => {
@@ -16,20 +16,23 @@ const App = props => {
   });
   */
 
-  const [pokemons, setPokemons] = useState([]);
+  /*const [pokemons, setPokemons] = useState([]);
 
   const [types, setTypes] = useState([]);
 
 
-  const pokemonHandler = (res) => {
-    setPokemons(res.data.results);
+  const pokemonHandler = (data) => {
+    setPokemons(data.results);
   }
 
   const typeHandler = (res) => {
-    setTypes(res.data.results);
-  }
+    setTypes(data.results);
+  }*/
 
-  useEffect(() => {
+  const [isLoadingPokemons, pokemonData] = useHttp('https://pokeapi.co/api/v2/pokemon');
+  const [isLoadingTypes, typeData] = useHttp('https://pokeapi.co/api/v2/type');
+
+ /* useEffect(() => {
     axios.get('https://pokeapi.co/api/v2/pokemon'
       ).then(res => pokemonHandler(res))
   }, []);
@@ -38,6 +41,8 @@ const App = props => {
     axios.get('https://pokeapi.co/api/v2/type')
     .then(res => typeHandler(res))
   }, []);
+
+  */
   
   const getListStyle = () => {return {display : 'flex'}};
     
@@ -49,13 +54,13 @@ const App = props => {
           <Route  exact path='/' component = {Home}/>
             <Route path='/pokemons' render = {props => (
               <React.Fragment>
-              <PokemonList style={getListStyle} pokemons={pokemons}></PokemonList>
+              <PokemonList style={getListStyle} pokemons={pokemonData}></PokemonList>
             </React.Fragment>
             )}
             />
             <Route path='/types' render = {props => (
               <React.Fragment>
-              <TypeList style={getListStyle} types={types}></TypeList>
+              <TypeList style={getListStyle} types={typeData}></TypeList>
             </React.Fragment>
             )}
             />
