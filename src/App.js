@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -8,7 +8,7 @@ import PokemonList from './components/routes/PokemonList';
 import TypeList from './components/routes/TypeList';
 
 
-class App extends Component{
+const App = props => {
   state = {
     pokemons : [],
     types: []
@@ -20,8 +20,6 @@ class App extends Component{
     axios.get('https://pokeapi.co/api/v2/type').then(res => this.setState({types : res.data.results}));
   }
   getListStyle = () => {return {display : 'flex'}};
-
-  render(){
     return (
       
         <div className='App'> 
@@ -45,7 +43,6 @@ class App extends Component{
       
     
     );
-          }
-}
+   }
 
 export default App;
