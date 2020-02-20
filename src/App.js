@@ -29,8 +29,8 @@ const App = props => {
     setTypes(data.results);
   }*/
 
-  const [isLoadingPokemons, pokemonData] = useHttp('https://pokeapi.co/api/v2/pokemon');
-  const [isLoadingTypes, typeData] = useHttp('https://pokeapi.co/api/v2/type');
+  const [isLoadingPokemons, pokemonData] = useHttp('https://pokeapi.co/api/v2/pokemon', []);
+  const [isLoadingTypes, typeData] = useHttp('https://pokeapi.co/api/v2/type', []);
 
  /* useEffect(() => {
     axios.get('https://pokeapi.co/api/v2/pokemon'
