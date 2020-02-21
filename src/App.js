@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Header from './components/Header'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/routes/Home';
@@ -12,8 +11,8 @@ import styled from 'styled-components';
 const App = props => {
   
 
-  const [isLoadingPokemons, pokemonData] = useHttp('https://pokeapi.co/api/v2/pokemon', []);
-  const [isLoadingTypes, typeData] = useHttp('https://pokeapi.co/api/v2/type', []);
+  const [isLoadingPokemons, pokemonData] = useHttp("https://pokeapi.co/api/v2/pokemon", []);
+  const [isLoadingTypes, typeData] = useHttp("https://pokeapi.co/api/v2/type", []);
   
   const getListStyle = () => {return {display : 'flex'}};
     
