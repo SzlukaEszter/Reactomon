@@ -1,16 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
 
-class Header extends Component {
-  render() {
-    const getStyle = {
-      backgroundColor: "#383838",
-      textShadow:
-        "-1px 1px 0 #000, 1px 1px 0 black, 1px -1px 0 red,-1px -1px 0 black"
-    };
+const Header = props => {
+
+    const Wrapper = styled.div `
+      background-color: #383838,
+      text-shadow:
+        -1px 1px 0 #000, 1px 1px 0 black, 1px -1px 0 red,-1px -1px 0 black
+    `;
 
     return (
-      <div className="header" style={getStyle}>
+      <Wrapper>
         <h1>Reactomon</h1>
         <div className="navbar" style={{ color: "orange", textShadow: "none" }}>
           <Link className="link" to="/">
@@ -25,8 +26,7 @@ class Header extends Component {
             Types
           </Link>
         </div>
-      </div>
+      </Wrapper>
     );
   }
-}
 export default Header;

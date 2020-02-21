@@ -1,12 +1,16 @@
 import React from "react";
-import "./App.css";
+//import "./App.css";
 import Header from "./components/Header";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./components/routes/Home";
 import PokemonList from "./components/routes/PokemonList";
 import TypeList from "./components/routes/TypeList";
 import { useHttp } from "./hooks/Http";
+import styled from 'styled-components';
 
+const AppContener = styled.div`
+background-color: lightblue;
+`;
 const App = props => {
   
   const [isLoadingPokemons, pokemons] = useHttp(
@@ -22,7 +26,7 @@ const App = props => {
   };
 
   return (
-    <div className="App">
+    <AppContener>
       <Router>
         <Header />
         <Route exact path="/" component={Home} />
@@ -46,7 +50,7 @@ const App = props => {
           )}
         />
       </Router>
-    </div>
+    </AppContener>
   );
 };
 
