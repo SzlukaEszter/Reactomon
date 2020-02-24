@@ -8,9 +8,7 @@ import TypeList from "./components/routes/TypeList";
 import { useHttp } from "./hooks/Http";
 import styled from 'styled-components';
 
-const AppContener = styled.div`
-background-color: lightblue;
-`;
+
 const App = props => {
   
   const [isLoadingPokemons, pokemons] = useHttp(
@@ -26,7 +24,7 @@ const App = props => {
   };
 
   return (
-    <AppContener>
+    <div style={{backgroundColor: 'lightblue'}}>
       <Router>
         <Header />
         <Route exact path="/" component={Home} />
@@ -50,7 +48,7 @@ const App = props => {
           )}
         />
       </Router>
-    </AppContener>
+    </div>
   );
 };
 

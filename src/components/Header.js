@@ -2,30 +2,51 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from 'styled-components';
 
-const Header = props => {
+const Wrapper = styled.div `
+background-color: lightblue;
+text-align: center;
+`;
 
-    const Wrapper = styled.div `
-      background-color: #383838,
-      text-shadow:
-        -1px 1px 0 #000, 1px 1px 0 black, 1px -1px 0 red,-1px -1px 0 black
-    `;
+const Image = styled.img`
+display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: ${props => props.width};
+`;
+
+const StyledLink = styled(Link)`
+text-decoration: none;
+font-size: 1.5em;
+color: #3c5aa6;
+&:hover {
+  color: red;
+} 
+`;
+
+const NavBar = styled.div`
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const Header = props => {
 
     return (
       <Wrapper>
-        <h1>Reactomon</h1>
-        <div className="navbar" style={{ color: "orange", textShadow: "none" }}>
-          <Link className="link" to="/">
+        <Image src={require('./routes/pkmn-logo.png')} alt='logo' width='30%'/>
+        <NavBar>
+          <StyledLink to="/">
             Home
-          </Link>
+          </StyledLink>
           |
-          <Link className="link" to="/pokemons">
+          <StyledLink to="/pokemons">
             Pokemons
-          </Link>
+          </StyledLink>
           |
-          <Link className="link" to="/types">
+          <StyledLink to="/types">
             Types
-          </Link>
-        </div>
+          </StyledLink>
+        </NavBar>
       </Wrapper>
     );
   }
