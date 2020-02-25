@@ -24,7 +24,6 @@ const App = props => {
   };
 
   return (
-    <div style={{backgroundColor: 'lightblue'}}>
       <Router>
         <Header />
         <Route exact path="/" component={Home} />
@@ -34,7 +33,6 @@ const App = props => {
             <React.Fragment>
               <PokemonList
                 style={getListStyle}
-                pokemons={pokemons.results}
               ></PokemonList>
             </React.Fragment>
           )}
@@ -48,7 +46,6 @@ const App = props => {
           )}
         />
       </Router>
-    </div>
   );
 };
 

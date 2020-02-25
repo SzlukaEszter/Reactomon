@@ -1,17 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 const Wrapper = styled.div `
-background-color: lightblue;
 text-align: center;
-`;
-
-const Image = styled.img`
-display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: ${props => props.width};
 `;
 
 const StyledLink = styled(Link)`
@@ -29,11 +21,31 @@ const NavBar = styled.div`
   margin-right: auto;
 `;
 
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+`;
+const Rotate = styled.img`
+
+width: ${props => props.width};
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 20px;
+margin-boottom: 20px;
+animation: ${rotate} 5s linear infinite;
+`;
+
 const Header = props => {
 
     return (
       <Wrapper>
-        <Image src={require('./routes/pkmn-logo.png')} alt='logo' width='30%'/>
+        <Rotate src={require('./routes/pokeball-clipart-closed-3-transparent.png')} alt='Pokemons' width='5%'></Rotate>
         <NavBar>
           <StyledLink to="/">
             Home
