@@ -48,13 +48,13 @@ const Header = props => {
         <Rotate src={require('./routes/pokeball-clipart-closed-3-transparent.png')} alt='Pokemons' width='5%'></Rotate>
         <NavBar>
           <StyledLink to="/">
-            Home
+          Home
           </StyledLink>
-          |
+           | 
           <StyledLink to="/pokemons">
             Pokemons
           </StyledLink>
-          |
+           | 
           <StyledLink to="/types">
             Types
           </StyledLink>
