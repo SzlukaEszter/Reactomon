@@ -16,20 +16,6 @@ color: #3c5aa6;
 } 
 `;
 
-const NavBar = styled.ul`
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-flexFlow: 'row wrap';
-`;
-
-const Li = styled.li`
-width: 12em;
-margin: 20px; 
-padding: 2em; 
-list-style-type: none;
-`;
 
 const rotate = keyframes`
   from {
@@ -56,23 +42,21 @@ const Header = props => {
     return (
       <Wrapper>
         <Rotate src={require('./routes/pokeball-clipart-closed-3-transparent.png')} alt='Pokemons' width='5%'></Rotate>
-        <NavBar>
-          <li>
+        <div>
+    
           <StyledLink to="/">
           Home
           </StyledLink>
-          </li>
-          <li>
+           | 
           <StyledLink to="/pokemons">
             Pokemons
           </StyledLink>
-          </li>
-          <li>
+           | 
           <StyledLink to="/types">
             Types
           </StyledLink>
-          </li>
-        </NavBar>
+          
+        </div>
       </Wrapper>
     );
   }
