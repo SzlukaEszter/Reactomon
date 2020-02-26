@@ -19,17 +19,6 @@ display: block;
   width: ${props => props.width};
 `;
 
-const SubTitle = styled.h2`
-font-family: "Comic Sans MS", cursive, sans-serif;
-font-size: 2em;
-  color:  #ffcb05;
-  text-align: center;
-  text-shadow: -1px 2px 0 #3c5aa6, -1px 2px 0 #3c5aa6, -2px 3px 0 #3c5aa6, -0px 0px 0 #3c5aa6;
-  -webkit-text-stroke-width: 2px; 
-            -webkit-text-stroke-color: #2a75bb; 
-
-  `;
-
 const rotate = keyframes`
   from {
     transform: rotate(0deg);

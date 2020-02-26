@@ -4,7 +4,7 @@ import styled, {keyframes} from 'styled-components';
 
 const Wrapper = styled.div `
 text-align: center;
-background-color: grey;
+height: 100px;
 `;
 
 const StyledLink = styled(Link)`
