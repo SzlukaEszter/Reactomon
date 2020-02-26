@@ -15,7 +15,7 @@ const PokemonList = props =>{
 
       return (
         <div style={{display : 'flex', flexFlow: 'row wrap'}}> 
-        {pokemons ? pokemons.results.slice(0,7).map((pokemon) =>
+        {pokemons ? pokemons.results.slice(0,8).map((pokemon) =>
             (<PokemonCard key={uuid.v4()} pokemon = {pokemon}></PokemonCard> )) : 
             <Rotate src={require('./pokeball-clipart-closed-3-transparent.png')} alt='Pokemons' width='5%'></Rotate>}
             </div>

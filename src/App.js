@@ -11,7 +11,7 @@ const App = props => {
  
 
   return (
-      <Router>
+      <Router style={ {backgroundImage: 'url(/poke-background.png)'}}>
         <Header />
         <Route exact path="/" component={Home} />
         <Route path="/pokemons" component= {PokemonList}/>

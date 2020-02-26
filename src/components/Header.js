@@ -4,6 +4,7 @@ import styled, {keyframes} from 'styled-components';
 
 const Wrapper = styled.div `
 text-align: center;
+background-color: grey;
 `;
 
 const StyledLink = styled(Link)`
@@ -15,10 +16,19 @@ color: #3c5aa6;
 } 
 `;
 
-const NavBar = styled.div`
+const NavBar = styled.ul`
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+flexFlow: 'row wrap';
+`;
+
+const Li = styled.li`
+width: 12em;
+margin: 20px; 
+padding: 2em; 
+list-style-type: none;
 `;
 
 const rotate = keyframes`
@@ -47,17 +57,21 @@ const Header = props => {
       <Wrapper>
         <Rotate src={require('./routes/pokeball-clipart-closed-3-transparent.png')} alt='Pokemons' width='5%'></Rotate>
         <NavBar>
+          <li>
           <StyledLink to="/">
           Home
           </StyledLink>
-           | 
+          </li>
+          <li>
           <StyledLink to="/pokemons">
             Pokemons
           </StyledLink>
-           | 
+          </li>
+          <li>
           <StyledLink to="/types">
             Types
           </StyledLink>
+          </li>
         </NavBar>
       </Wrapper>
     );
